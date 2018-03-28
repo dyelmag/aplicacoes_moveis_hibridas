@@ -28,26 +28,20 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         
-        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">-->
-        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        --> <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>Agenda</title>
     </head>
     <body>
-        <div class="app">
-            <button onclick="app.capturePhoto();">Capturar imagem</button>
-            <button onclick="app.capturePhotoEdit();">Cap. img editavel</button>
-            <button onclick="app.getPhoto(pictureSource.PHOTOLIBRARY);">Carregar da biblioteca</button>
-            <button onclick="app.getPhoto(pictureSource.SAVEDPHOTOALBUM);">Carregar da biblioteca</button>
-            <img style="display:none;width:100px;height:100px;" id="smallImage" src="" />
-            <img style="display:none;" id="largeImage" src="" />
-            
-        </div>
+        <h2>Agenda Telefonica</h2>
+        <div id="contact-list"></div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script>
             app.initialize();
         </script>
     </body>

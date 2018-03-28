@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-input type="number" [(ngModel)] = "valor_a"></ion-input>
+  
+  <ion-input type="number" [(ngModel)] = 'valor_b'></ion-input>
+
+  <button ion-button block (click)="Somar()">Somar</button>
+  <button ion-button block (click)="Sub()">Subtrair</button>
+
+  Valor A: {{valor_a}} <br />
+  Valor b: {{valor_b}} <br />
+  Resultado: {{resultado}}
+
+
+</ion-content>
