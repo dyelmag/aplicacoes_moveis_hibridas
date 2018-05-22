@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg social-cards">
+  <ion-list>
+    <ion-item *ngFor="let aux of items">
+      <ion-thumbnail item-start>
+        <img src="{{aux.capa}}">
+      </ion-thumbnail>
+      <h2>{{aux.titulo}}</h2>
+      <p>Tagas: {{aux.tags}}</p>
+      <p>Autor: {{aux.autor1}}</p>
+      <button ion-button clear item-end [navPush]="mg" [navParams]="aux.id">Abrir</button>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

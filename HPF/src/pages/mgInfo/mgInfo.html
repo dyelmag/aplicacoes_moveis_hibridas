@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-item *ngIf="mg">
+  <ion-thumbnail item-start>
+    <img src="http://127.0.0.1:8005{{mg.manga.capa}}">
+  </ion-thumbnail>
+  {{mg.manga.titulo}}
+</ion-item>
+
+</ion-content>
