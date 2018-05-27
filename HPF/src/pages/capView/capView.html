@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar *ngIf="mg">
+    <ion-title>{{mg.cap.titulo}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-card *ngIf="mg">
+  <ion-slides>
+      <ion-slide *ngFor="let aux of mg.arq">
+        <img src="http://127.0.0.1:8005{{aux.aquivos}}">
+      </ion-slide>
+    </ion-slides>
+  
+</ion-card>
+
+
+
+
+</ion-content>

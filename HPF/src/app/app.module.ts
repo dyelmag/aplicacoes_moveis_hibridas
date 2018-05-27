@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 import { mgInfoPage } from '../pages/mgInfo/mgInfo';
+import { capView } from '../pages/capView/capView';
 
 import { Http, HttpModule } from '@angular/http';
 
@@ -27,7 +28,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     LoginPage,
     CadastrarPage,
-    mgInfoPage
+    mgInfoPage,
+    capView
   ],
   imports: [
 	HttpModule,
@@ -43,7 +45,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     LoginPage,
     CadastrarPage,
-    mgInfoPage
+    mgInfoPage,
+    capView
   ],
   providers: [
     StatusBar,

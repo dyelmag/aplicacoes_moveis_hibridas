@@ -1,14 +1,35 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar *ngIf="mg">
+    <ion-title>{{mg.manga.titulo}}</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
-<ion-item *ngIf="mg">
-  <ion-thumbnail item-start>
-    <img src="http://127.0.0.1:8005{{mg.manga.capa}}">
-  </ion-thumbnail>
-  {{mg.manga.titulo}}
-</ion-item>
+<ion-card *ngIf="mg">
+  <img src="http://127.0.0.1:8005{{mg.manga.capa}}">
+  <ion-card-content>
+    <ion-card-title>
+      
+    </ion-card-title>
+    <p><b>Tags:</b> {{mg.manga.tags}}</p>
+    <p><b>Autor:</b> {{mg.manga.autor1}}</p><br>
+    <b>Descrição:</b>
+    <p>
+      {{mg.manga.descricao}}
+    </p>
+
+  <ion-list>
+      <h2><b>Capitulos</b></h2>
+      <ion-item *ngFor="let aux of mg.cap">
+        <ion-thumbnail item-start>
+          <img src="http://127.0.0.1:8005{{aux.capa}}">
+        </ion-thumbnail>
+        <h2>Capitulo {{aux.cpN}}</h2>
+        <h3>{{aux.titulo}}</h3>
+        <button ion-button clear item-end (click)="navigate(mg.manga.id, aux.cpN)">Abrir</button>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+  
+</ion-card>
 
 </ion-content>

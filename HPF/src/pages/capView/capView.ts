@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, NavParams } from 'ionic-angular';
 import { HttpService } from './service';
-import { capView } from '../capView/capView';
 
 @Component({
-  selector: 'page-mgInfo',
-  templateUrl: 'mgInfo.html',
+  selector: 'page-capView',
+  templateUrl: 'capView.html',
   providers: [ HttpService ]
 })
-export class mgInfoPage implements OnInit {
+export class capView implements OnInit {
   selectedItem: any;
   erros: any = null;
   cap: Array<any>;
@@ -22,16 +21,6 @@ export class mgInfoPage implements OnInit {
     public http_service: HttpService
   ) { }
 
-  navigate(manga, capitulo){
-    console.log('-------');
-    console.log(manga);
-    console.log(capitulo);
-    this.navCtrl.push(capView, {
-      mg: manga,
-      cp: capitulo
-    })
-  }
-
   ngOnInit()
   {
     this.fetchContent();
@@ -42,10 +31,10 @@ export class mgInfoPage implements OnInit {
     });
     loading.present();
     this.erros = null;
-    this.http_service.get(this.navParams.data).subscribe(
+    this.http_service.get(this.navParams.data.mg, this.navParams.data.cp).subscribe(
       resposta => {
       this.mg = resposta;
-      console.log('------------------');
+      console.log('------------------3');
       console.log(this.mg);
       loading.dismiss();
     },

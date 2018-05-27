@@ -12,23 +12,18 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class HttpService
 {
-  private base_url: string = 'http://127.0.0.1:8005/add/listar/api/';
-  private base_url2: string = 'http://127.0.0.1:8005/usuario/api';
+  private base_url: string = 'http://127.0.0.1:8005/add/manga';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private core_http: Http) {}
-
-  public setToken(token: string):void{
-    this.headers = new Headers({'Content-Type': 'application/json', 'Authorization': 'Token '+token});
-  }
 
   public all(): Observable<any[]>
   {
     return this.core_http.get(this.base_url).map(this.extractData).catch(this.handleError);
   }
-  public get(id: number): Observable<any>
+  public get(id: number, cp: number): Observable<any>
   {
-    return this.core_http.get(`${this.base_url2}/${id}/`).map(this.extractData).catch(this.handleError);
+    return this.core_http.get(`${this.base_url}/${id}/${cp}/api/`).map(this.extractData).catch(this.handleError);
   }
 
   public add(instance: any): Observable<any>

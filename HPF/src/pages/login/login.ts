@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, NavParams } from 'ionic-angular';
+import { Http, Response, Headers } from '@angular/http';
+import { CadastrarPage } from '../cadastrar/cadastrar';
 
 @Component({
   selector: 'page-login',
@@ -12,28 +14,38 @@ export class LoginPage implements OnInit {
   autor: any;
   usuario: any;
   senha: any;
+  data: any;
+  mg = CadastrarPage;
 
   constructor(
     public navCtrl: NavController,
    // public navParams: NavParams,
-    public loadingCtrl: LoadingController,
+    public loadingCtrl: LoadingController, private http: Http
   ) { }
-
+  
   public createAccount() {
     this.navCtrl.setRoot('CadastrarPage');
     
   }
+
   login(){
     let formData: FormData = new FormData();
-    formData.append("usuario", this.usuario);
-    formData.append("senha", this.senha);
-    console.log(this.usuario);
-    console.log(this.senha);
-    var request = new XMLHttpRequest();
-    request.open("POST", "http://127.0.0.1:8005/usuario/entrar/api/");
-    request.send(formData);
-    console.log(request.response());
+    formData.append("username", this.usuario);
+    formData.append("password", this.senha);
+    let link = "http://127.0.0.1:8005/usuario/entrar/api/";
+    this.http.post(link, formData)
+    .map(res => res.json())
+    .subscribe(resposta => {
+      this.data = resposta;
+    }, 
+    err => this.erro);
+    console.log(this.data)
   }
+  erro(error){
+    console.log(error);
+    return error.json().message || 'erro'
+  }
+
   ngOnInit()
   {
    
