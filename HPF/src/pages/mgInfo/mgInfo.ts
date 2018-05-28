@@ -23,9 +23,6 @@ export class mgInfoPage implements OnInit {
   ) { }
 
   navigate(manga, capitulo){
-    console.log('-------');
-    console.log(manga);
-    console.log(capitulo);
     this.navCtrl.push(capView, {
       mg: manga,
       cp: capitulo

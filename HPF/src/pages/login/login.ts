@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, NavParams } from 'ionic-angular';
 import { Http, Response, Headers } from '@angular/http';
 import { CadastrarPage } from '../cadastrar/cadastrar';
+import { ContactPage } from '../contact/contact';
 
 @Component({
   selector: 'page-login',
@@ -36,7 +37,10 @@ export class LoginPage implements OnInit {
     this.http.post(link, formData)
     .map(res => res.json())
     .subscribe(resposta => {
-      this.data = resposta;
+      this.navCtrl.push(ContactPage, {
+        aux: true,
+        info: resposta
+      })
     }, 
     err => this.erro);
     console.log(this.data)

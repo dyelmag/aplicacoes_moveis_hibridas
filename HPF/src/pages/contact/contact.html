@@ -1,17 +1,50 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Perfil
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+  <ion-item *ngIf="!logado">
+    <button ion-button class="register-btn" block clear (click)="navigate()">Login</button>
+  </ion-item>
+  <ion-item *ngIf="logado">
+    <ion-item *ngIf="resp" text-center class="capa">
+      <ion-card class="profile-top">
+        <ion-row>
+          <ion-col>
+            <div class="profile-photo">
+              <img src="http://127.0.0.1:8005{{resp.capa}}">
+            </div>
+            <button ion-button block clear (click)="alterar()" color="royal">Alterar</button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+      <ion-list class="profile-detail">
+        <ion-row>
+          <ion-col no-padding>
+            <ion-item>
+              <h4>Nome</h4>
+              <p>{{resp.name}} {{resp.Lname}}</p>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-item icon-left>
+          <h4>
+            <ion-icon name="mail"></ion-icon>Email</h4>
+          <p>{{resp.email}}</p>
+        </ion-item>
+        <ion-item>
+          <h4>Data de Nacimento</h4>
+          <p>{{resp.dn}}</p>
+        </ion-item>
+        <ion-item>
+          <h4>Cidade</h4>
+          <p>{{resp.cidade}}</p>
+        </ion-item>
+      </ion-list>
     </ion-item>
-  </ion-list>
+  </ion-item>
 </ion-content>

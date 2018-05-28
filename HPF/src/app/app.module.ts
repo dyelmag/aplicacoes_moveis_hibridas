@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 import { mgInfoPage } from '../pages/mgInfo/mgInfo';
 import { capView } from '../pages/capView/capView';
+import { EditarPage } from '../pages/editar/editar';
 
 import { Http, HttpModule } from '@angular/http';
 
@@ -29,7 +30,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     CadastrarPage,
     mgInfoPage,
-    capView
+    capView,
+    EditarPage
   ],
   imports: [
 	HttpModule,
@@ -46,7 +48,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     CadastrarPage,
     mgInfoPage,
-    capView
+    capView,
+    EditarPage
   ],
   providers: [
     StatusBar,
