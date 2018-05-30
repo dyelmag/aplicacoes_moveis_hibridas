@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, NavParams } from 'ionic-angular';
 import { HttpService } from './service';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 @Component({
   selector: 'page-capView',
@@ -13,6 +14,7 @@ export class capView implements OnInit {
   cap: Array<any>;
   mg: any;
   autor: any;
+  zoomedImage: any;
 
   constructor(
     public navCtrl: NavController,
@@ -20,6 +22,8 @@ export class capView implements OnInit {
     public loadingCtrl: LoadingController,
     public http_service: HttpService
   ) { }
+
+  grid = true;
 
   ngOnInit()
   {
@@ -43,6 +47,22 @@ export class capView implements OnInit {
     });
   }
   
+  changeGrid() {
+    this.grid = !this.grid;
+  }
+
+  zoomImage(img) {
+    console.log(img);
+    if (this.zoomedImage = ! null && this.zoomedImage == img) { // Necessário para remover a marcação da imagem caso clique na mesma
+      console.log("if");
+      this.zoomedImage = null;
+    } else {
+      console.log("else");
+      this.zoomedImage = img;
+    }
+  }
+
+
   itemTapped(event, item) {
     this.selectedItem = item;
     console.log(item);

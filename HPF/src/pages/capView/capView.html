@@ -7,7 +7,7 @@
 <ion-card *ngIf="mg">
   <ion-slides>
       <ion-slide *ngFor="let aux of mg.arq">
-        <img src="http://127.0.0.1:8005{{aux.aquivos}}">
+        <img src="http://127.0.0.1:8005{{aux.aquivos}}" class="fullscreen-image" (click)="presentImage(myImage)">
       </ion-slide>
     </ion-slides>
   

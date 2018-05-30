@@ -1,3 +1,29 @@
 page-home {
-
+    img {
+        width: 100%;
+    } // Transição entre a imagem original e a imagem com zoom
+    img[zoom] {
+        -webkit-transition: all 0.5s ease;
+    } // Transformação da imagem normal para o zoom, aplicado scale (você pode mudar essa linha de acordo com sua necessidade)
+    .zoomed>img[zoom] {
+        -webkit-transform: scale(1.1);
+    } // Necessário para estilizar o grid
+    ion-col {
+        text-align: center;
+        button {
+            padding: 0px !important;
+            background: transparent;
+        }
+    }
+    .fullscreen-image {
+        max-width: 100%;
+        max-height: 100%;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        overflow: auto;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
 }
